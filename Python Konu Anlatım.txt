@@ -1,0 +1,364 @@
+### TEMEL BILGILER ###
+#1 --> turkce karakter sorununu duzeltiyor
+# -*- coding: cp1254 -*-
+#2 --> Butun matematiksel islemleri tamsayý olarak alacak
+from __future__ import division
+#3 --> printf ve degisken ornegi
+a = 5
+b = 3
+print "a'yi b'ye bolersek", a / b, "elde ederiz"
+print a, "sayýsý", b, "sayýsýndan büyüktür"
+print "%s ile %s çarpýlýrsa %s elde edilir" %(a, b, a*b)
+#4 --> raw_input fonksiyonu (string = karakter)
+parola = raw_input("Lütfen parolanýzý girin:")
+print "Hosgeldiniz!"
+print "Girdiðiniz parola: ", parola
+#5 --> input fonksiyonu (integer = sayi)
+a = input("Lütfen bir sayý girin:")
+print a
+#NOT: raw_input() ile input() arasindaki fark
+a = input("Lütfen bir sayý girin:")
+b = input("Lütfen baþka bir sayý daha girin:")
+print a + b # a=5 b=42 olsun sonuc = 47 olur
+a = raw_input("Lütfen bir sayý girin:")
+b = raw_input("Lütfen baþka bir sayý daha girin:")
+print a + b # a=5 b=42 olsun sonuc = 542 olur
+#6 --> \n bir asagidaki satira iner
+print "Birinci satýr\nÝkinci satýr\nÜçüncü satýr"
+#7 --> \t 4 karakter bosluk saglar
+print "uzak... \tçok uzak"
+#8 --> Dönüþtürme Ýþlemleri
+#karakteri sayiya donusturme
+a = "23"
+int(a) # ekran cýktýsý 23 olur
+#sayiyi karaktere donusturme
+a = 23
+str(a) # ekran cýktýsý '23' olur
+### KOSULA BAGLI DURUMLAR --> if / else / elif ###
+parola = "python"
+cevap = raw_input("Lütfen parolanýzý giriniz: ")
+if cevap == parola:
+    print "Parola onaylandý! Programa hoþ geldiniz!"
+elif cevap=="PYTHON":
+    print "Parola onaylandý! Programa hoþ geldiniz!"
+else:
+    print "Ne yazýk ki, yanlýþ parola girdiniz!"
+#GENEL ORNEK:
+# -*- coding: utf-8 -*-
+
+secenek1 = "(1) toplama"
+secenek2 = "(2) çýkarma"
+secenek3 = "(3) çarpma"
+secenek4 = "(4) bölme"
+
+print secenek1
+print secenek2
+print secenek3
+print secenek4
+
+soru = raw_input("Yapýlacak iþlemin numarasýný girin: ")
+
+if soru == "1":
+     sayi1 = input("Toplama için ilk sayýyý girin: ")
+     print sayi1
+     sayi2 = input("Toplama için ikinci sayýyý girin: ")
+     print sayi1, "+", sayi2, ":", sayi1 + sayi2
+if soru == "2":
+     sayi3 = input("Çýkarma için ilk sayýyý girin: ")
+     print sayi3
+     sayi4 = input("Çýkarma için ikinci sayýyý girin: ")
+     print sayi3, "-", sayi4, ":", sayi3 - sayi4
+if soru == "3":
+     sayi5 = input("Çarpma için ilk sayýyý girin: ")
+     print sayi5
+     sayi6 = input("Çarpma için ikinci sayýyý girin: ")
+     print sayi5, "x", sayi6, ":", sayi5 * sayi6
+if soru == "4":
+     sayi7 = input("Bölme için ilk sayýyý girin: ")
+     print sayi7
+     sayi8 = input("Bölme için ikinci sayýyý girin: ")
+     print sayi7, "/", sayi8, ":", sayi7 / sayi8
+### DONGULER ###
+#1 --> while Dongusu
+a = 0
+while a < 100:
+    a = a + 1
+    print a
+#2 --> for Dongusu
+for i in range(1, 100):
+     print i
+#3 --> range() fonksiyonu (Bu fonksiyon Python’da sayý
+     #aralýklarýný belirtmemizi saðlar.)
+print range(1, 100, 2)
+# sonuc = 1 ile 100 arasýndaki sayilari ikiþer ikiþer yazdýracak [1,3,5,...,99]
+#4 --> len() fonksiyonu (Bu fonksiyon, karakter dizilerinin uzunluðunu gösterir.)
+a = "Afyonkarahisar"
+print len(a)
+#5 --> break deyimi (bir döngüyü sona erdirmek gerektiði zaman kullanýlýr.)
+kullanici_adi = "kullanici"
+parola = "parola"
+
+while True:
+     soru1 = raw_input("Kullanýcý adý: ")
+     soru2 = raw_input("Parola: ")
+
+     if soru1 == kullanici_adi and soru2 == parola:
+        print "Kullanýcý adý ve parolanýz onaylandý."
+        break
+     else:
+        print "Kullanýcý adýnýz veya parolanýz yanlýþ."
+        print "Lütfen tekrar deneyiniz!"
+#6 --> continue deyimi (Bu deyim ise döngü içinde kendisinden sonra
+        #gelen her þeyin es geçilip döngünün en baþýna dönülmesini saðlar.)
+while True:
+     s = raw_input("Bir sayý girin: ")
+     if s == "iptal":
+        break
+     if len(s) <= 3:
+        continue
+     print "En fazla üç haneli bir sayý girin."
+### LISTELER (list) ###
+liste = ["Hale", "Jale", "Lale", 12, 23]
+len(liste)
+#1 --> append() (Listeye yeni bir öðe eklemek için metodundan faydalanýyoruz)
+liste.append("Mehmet")
+# append() fonksiyonu yalnýz bir eleman ekler ve en sona ekler??
+liste[0]
+# listenin belli bir elemanýna ulaþmak için bu terim kullanýlýr.
+#2 --> insert() (Listenin herhangi bir noktasýna öðe ekleyebiliyoruz.)
+liste.insert(1, "Ahmet")
+# Bu metot da týpký append() metodunda olduðu gibi listeye yalnýzca
+# bir adet öðe eklememize izin verir.
+#3 --> extend() (oluþturduðumuz listeleri “geniþletmemizi” saðlar.)
+yeni_liste = ["Simovic", "Prekazi", "Jardel", "Nouma"]
+liste.extend(yeni_liste)
+liste = liste + yeni_liste
+# iki kodunda görevi listeleri birleþtirmek ve her zaman listenin sonuna ekler
+#4 --> remove() (listemizden isim vererek öðe çýkarmak.)
+liste.remove("Nouma")
+#veya
+#5 --> pop() (listeler ile birlikte kullandýðýmýz pop() metodu ise listeden
+# bir öðe silerken, bu sildiðimiz öðenin ekrana yazdýrýlmasýný saðlýyor.)
+# (listemizden sayi vererek öðe çýkarmak.)
+liste.pop() #veya
+liste.pop(0)
+#6 --> index() (Bu komut, öðenin liste içinde kaçýncý sýrada olduðunu gösterir.)
+print liste.index("Jardel")
+#7 --> sort() (listemizdeki öðeleri alfabe sýrasýna dizmeye yarar.)
+liste.sort()
+#8 --> reverse() (Bu metot listedeki öðelerin sýrasýný ters cevirir.)
+liste.reverse()
+#9 --> count() (Bu metot liste içinde bir öðenin kaç kez geçtiðini söyler.)
+liste.count("Prekazi")
+#################################################################################
+ # Nasýl liste oluþturacaðýmýzý --> liste = []
+ # bu listeye nasýl yeni öðeler ekleyeceðimizi --> liste.append(), liste.insert()
+ # listemizi nasýl geniþleteceðimizi --> liste.extend()
+ # eklediðimiz öðeleri nasýl çýkaracaðýmýzý --> liste.remove(), liste.pop()
+ # liste içindeki öðelerin sýrasýný bulmayý --> liste.index()
+ # öðeleri abc sýrasýna dizmeyi --> liste.sort()
+ # öðelerin sýrasýný ters çevirmeyi (cba) --> liste.reverse()
+ # listedeki öðelerin liste içinde kaç kez geçtiðini bulmayý --> liste.count()
+#################################################################################
+liste[-1] # listedeki son öðeyi çaðýrmak istersek
+liste[2:4] # listedeki 2. ve 3. öðeleri yazdýracaktýr.
+liste[5:5] = ["domates", "salata"] #listenin en sonuna bir veya b'fazla öðe ekle
+liste[3:3] = ["kebap", "lahmacun"] #listenin 3.sýrasýna bir veya b'fazla öðe ekle
+liste[2:3] = [] #listenin 2. sýrasýndaki öðeyi silmek
+liste[2:3] = ["nane", "limon"] #listenin 2.sýrasýndaki öðeyi silip
+#yerine bir veya b'fazla öðe ekle
+liste[2] = ["ruj", "maskara", "rimel"] #listenin 2. sýrasýndaki öðeyi silip
+#yerine bir veya birden fazla öðeye sahip bir liste yerleþtirmek
+### DEMETLER (tuple) ###
+#Demetler listelere benzer. Ama listeler ile aralarýnda çok temel bir fark vardýr
+#Listeler üzerinde oynamalar yapabiliriz.
+#Yani öðe ekleyebilir, öðe çýkarabiliriz. Demetlerde ise böyle bir þey yoktur.
+demet = "Ali", "Veli", 49, 50 #veya
+demet2 = ("Ali", "Veli", 49, 50) #ayný þey
+demet = () #boþ bir demet
+demet = ("su",) #tek öðeli bir demet
+### SOZLUKLER (ordereddict) ###
+telefon_defteri = {"Ahmet": "0533 123 45 67", ... "Salih": "0532321 54 76",
+... "Selin": "0533 333 33 33"}
+#1 --> yeni öðe ekleme
+telefon_defteri["Zekiye"] = "0544 444 01 00"
+#2 --> sözlüðümüzdeki bir öðenin deðerini deðiþtirmek
+telefon_defteri["Salih"] = "0555 555 55 55"
+#3 --> bir öðeyi listeden silmek istersek
+del telefon_defteri["Salih"]
+#4 --> sözlükteki bütün öðeleri silmek istersek
+telefon_defteri.clear()
+#5 --> keys() metodu bir sözlükteki anahtarlarý,
+# values() metodu ise sözlükteki deðerleri verir.
+print telefon_defteri.keys() #['Ahmet', 'Salih', 'Selin']
+print telefon_defteri.values() #['0533 123 4567','0532 321 5476','0533 333 3333']
+### SOZLUKLER ÝLE ÝLGÝLÝ BÝR ORNEK ##############################################
+soru = raw_input("Þehrinizin adýný tamamý küçük \
+harf olacak þekilde yazýnýz: ")
+
+cevap = {"istanbul":"gök gürültülü ve saðanak yaðýþlý",
+         "ankara":"açýk ve güneþli", "izmir":"bulutlu"}
+
+print cevap.get(soru,"Bu þehre iliþkin havadurumu \
+bilgisi bulunmamaktadýr.")
+#################################################################################
+# get() fonksiyonu bize sözlük içinde bir deðerin varolup olmadýðýný denetleme
+# imkânýnýn yanýsýra, adý geçen deðerin sözlük içinde varolmamasý durumunda
+# kullanýcýya gösterilecek bir mesaj seçme olanaðý da sunar.
+### if deyimleri yerine sözlüklerden yararlanmanýn faydalarý ####################
+#1# Öncelikle sözü geçen senaryo için sözlükleri kullanmak programcýya daha az
+# kodla daha çok iþ yapma olanaðý saðlar.
+#2# Sözlük programcýnýn elle oluþturacaðý “if-elif-else” bloklarýndan daha
+# performanslýdýr ve bize çok hýzlý bir þekilde veri sorgulama imkâný saðlar.
+#3# Kodlarýn daha az yer kaplamasý sayesinde programýn bakýmý da kolaylaþacaktýr.
+#4# Tek tek “if-elif-else” bloklarý içinde þehir adý ve buna iliþkin hava durumu
+# bilgileri tanýmlamaya kýyasla sözlük içinde yeni “anahtar-deðer” çiftleri
+# oluþturmak daha pratiktir.
+#################################################################################
+### SIRALI SOZLUKLER ###
+from collections import OrderedDict
+personel = OrderedDict([("Ahmet", "19.01.2013"),
+... ("Mehmet", "21.03.2013"), ("Selin", "30.06.2013")])
+#yada
+personel = OrderedDict()
+personel["Ahmet"] = "19.01.2013"
+personel["Mehmet"] = "21.03.2013"
+personel["Selin"] = "30.06.2013"
+print personel
+# ekran cýktýsý = OrderedDict([('Ahmet', '19.01.2013'), ('Mehmet', '21.03.2013'),
+# ('Selin', '30.06.2013')])
+personel.keys() # ekran cýktýsý = ['Ahmet', 'Mehmet', 'Selin']
+personel.values() # ekran cýktýsý = ['19.01.2013', '21.03.2013', '30.06.2013']
+print personel.get("Sedat", "Böyle biri yok!") # ekran cýktýsý = Böyle biri yok!
+### FONKSIYONLAR ###
+#1 --> Fonksiyonu Tanýmlamak
+def fonksiyon_adi():
+    print "merhaba dünya!"
+fonksiyon_adi() #Fonksiyonu cagýran kod
+#2 --> Fonksiyonlarda Parametre Kullanýmý
+def selamla(isim):
+    print "merhaba, benim adým %s!" %isim
+selamla("Ahmet Efendi")
+# ekran cýktýsý = merhaba, benim adým Ahmet Efendi! ,olur.
+def carp(liste):
+     a = 1
+     for i in liste:
+        a = a * i
+     print(a)
+sayilar = [3, 5, 7]
+carp(sayilar) # ekran cýktýsý = 105
+#3 --> Ýsimli Argümanlar
+def kayit_ekle(isim, soyisim, sehir, meslek, tel, adres):
+     kayit = {}
+     kayit["%s %s" %(isim, soyisim)] = [sehir, meslek, tel, adres]
+     print "\nBaðlantý bilgileri kayýtlara eklendi!\n"
+     for k, v in kayit.items():
+         print k
+         print "-"*len(k)
+         for i in v:
+             print i
+isi = raw_input("isim: ")
+soy = raw_input("soyisim: ")
+seh = raw_input("þehir: ")
+mes = raw_input("meslek: ")
+tel = raw_input("telefon: ")
+adr = raw_input("adres: ")
+kayit_ekle(isi, soy, seh, mes, tel, adr)
+#4 --> Gömülü Fonksiyonlar
+# http://docs.python.org/library/functions.html
+#5 --> global Deyimi
+def fonk():
+     global a
+     a = 5
+     print a
+fonk()
+print "a'nýn deðeri: ", a # ekran cýktýsý = 5
+#                                           a'nýn deðeri: 5
+#6 --> return Deyimi
+def sayi_isle():
+     sor = input("bir sayý girin: ")
+     return sor
+sayi = sayi_isle()
+print "girdiðiniz sayý: %s" %sayi
+if sayi % 2 == 0:
+    print "girdiðiniz sayý çifttir"
+else:
+    print "girdiðiniz sayý tektir"
+print "girdiðiniz sayýnýn karesi: %s" %sayi ** 2
+print "girdiðiniz sayýnýn küpü: %s" %sayi ** 3
+#7 --> pass Deyimi (bu deyim herhangi bir iþlem yapmadan
+# geçeceðimiz durumlarda kullanýlýr.)
+def deneme():
+     liste = []
+     while True:
+         a = raw_input("Giriniz: ")
+         if a == "0":
+             pass
+         else:
+            liste.append(a)
+            print liste
+deneme()
+### try... / except... ### (Python’da hata yakalamak için kullanýlýr.)
+try:
+    ilk = int(raw_input("Bölme iþlemi için ilk sayýyý girin: "))
+    ikinci = int(raw_input("Þimdi de ikinci sayýyý girin: "))
+    sonuc = float(ilk) / ikinci
+    print sonuc
+except ZeroDivisionError:
+    print "Lütfen sayýyý 0'a bölmeye çalýþmayýn!"
+except ValueError:
+    print "Lütfen harf deðil, sayý girin!"
+### count metodu (bir karakter dizisi içinde bir karakterden kaç
+# adet bulunduðunu denetleme imkâný verir.)
+besiktas = "Sinan Paþa Pasajý"
+besiktas.count("a") # ekran cýktýsý = 5
+### find metodu (bir karakterin, karakter dizisi içinde hangi
+# konumda yer aldýðýný söyler.)
+a = "armut"
+print a.find("a") # ekran cýktýsý = 0
+### a.upper() karakterleri büyütür
+print a.upper()
+### a.lower() karakterleri kücültür
+print a.lower()
+### a.isupper() karakterlerin hepsi büyükse True degilse False yazar
+print a.isupper()
+### a.islower() karakterlerin hepsi kücükse True degilse False yazar
+print a.islower()
+### a.capitalize() baþ harfi buyuk yazar
+print a.capitalize()
+### a.replace('a','b') aharfi yerine b harfi yazar
+print a.replace('a','b')
+#############################################################################
+import math
+dir(math)
+math.pi
+math.e
+math.factorial(5)
+pow(2,3)
+###---ORNEKLER---############################################################
+#1#fibonacci#
+f1,f2=1,1
+n=input("kacinci sayiyi ogrenmek istiyorsunuz: ")
+for i in range (3,n+1):
+    fib=f1+f2
+    f1,f2=f2,fib
+print fib
+#2#asal saayi#
+number=input("sinir degeri girin: ")
+for num in range(10,number):
+    for i in range(2,num/2):
+        if num%i==0:
+            break
+    else:
+        print num
+#3#belli aralýðý yazdýrma#
+i=0
+while i<7:
+    print i 
+    i=i+1
+#4#try/except#
+a=raw_input("bir sayi girin: ")
+try:
+    print(int(a)/2)
+except:
+    print("sayi girmediniz")

@@ -1,0 +1,122 @@
+1) Kaçýncý Fibonacci sayýsý 1000 basamaklýdýr.
+
+a1 = 1
+a2 = 1
+sayac = 0
+n = 2
+while True:
+> sayac = 0
+> a = a1 + a2
+> a1 = a2
+> a2 = a
+> n += 1
+> for i in str(a): #Basamak sayisini bulur.
+>> sayac += 1 
+> if sayac == 1000: # Basamak sayisi 1000 mi?
+>> print a, n
+>> break
+
+2) 10001'inci asal sayýyý bulunuz. (Try except'e gerek yok!)
+
+try:
+> n = input("Kacini asal sayiyi bulmak istersiniz?")
+> if n == 1:
+>> print "ilk asal sayi 2'dir."
+> sayac = 1
+> sayi = 3
+> while sayac != n:
+>> for i in range(2,sayi):
+>>> kontrol = 0
+>>> if sayi % i == 0:
+>>>> kontrol = 1
+>>>> break
+>>> else:
+>>>> kontrol =0
+>> if kontrol == 0:
+>>> sayac+=1
+>>> if sayac == n:
+>>>> print n, ". Asal sayi= ", sayi
+>> sayi += 1
+except:
+> print "Lutfen pozitif tamsayi giriniz."
+
+3) 2 milyondan daha küçük tüm asal sayýlarýn toplamýný bulunuz.
+
+sayi = 3
+asaltoplam = 2
+while sayi < 2000000:
+> for i in range(2, sayi):
+>> kontrol = 0
+>> if sayi % i == 0:
+>>> kontrol =1
+>>> break
+>> else:
+>>> kontol = 0
+> if kontrol == 0:
+>> asaltoplam = asaltoplam + sayi
+> sayi += 1
+print asaltoplam
+
+4) 1 milyondan daha küçük ve aþaðýdaki gibi tarif edilen en uzun
+diziyi oluþturan pozitif sayýyý bulunuz.
+* n -> n/2 (n çift ise)
+* n -> 3n+1 (n tek ise)
+
+sayi=1
+A=[]
+aranansayi=0
+kacinci=0
+while sayi<1000000:
+    k=sayi
+    sayac=0
+    while k!=1:
+        if k%2==0:
+            k=k/2
+            sayac=sayac+1
+        else:
+            k=3*k+1
+            sayac=sayac+1
+    if sayac>kacinci:
+        kacinci=sayac
+        aranansayi=sayi
+    sayi=sayi+1
+print "En uzun liste %s sayisinda oluþur" %(aranansayi)
+ 
+
+
+5) 100!'in rakamlarý toplamýný bulunuz.
+
+sayi = 100
+fak = 1
+toplam = 0
+while sayi >= 1:
+> fak = fak * sayi
+> sayi -= 1
+for i in str(fak):
+> toplam = toplam + int(i)
+print toplam
+
+6) 1-20 arasý tüm sayýlara kalansýz bölünebilen en küçük tam sayýyý bulunuz.
+
+sayi = 2 # Bolunecek sayi
+kontrol = 0 
+while kontrol != 1:
+> for i in range(1, 20):
+>> if sayi % i != 0:
+>>> kontrol = 0
+>>> sayi += 1
+>>> break
+>> else:
+>>> kontrol = 1
+print sayi
+
+7) Pythagorean üçlüsü a2 + b2 = c2 denklemini saðlayan sayýlara denir.
+Sadece bir Pythagorean üçlüsü a + b + c = 1000 eþitliðini saðlar. Bu
+a,b,c sayýlarýný bulunuz.
+
+for a in range(1, 1000):
+> for b in range(1, 1000):
+>> for c in range(1, 1000):
+>>> if a + b + c == 1000:
+>>>> if (a ** 2) + (b ** 2) == (c ** 2):
+>>>>> print a, b, c
