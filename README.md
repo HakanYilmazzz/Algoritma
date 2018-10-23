@@ -1,4 +1,6 @@
-# TEMEL BILGILER
+# ALGORİTMA  
+
+## TEMEL BILGILER
 
 **1** –> Türkçe karakter sorununu duzeltiyor: coding: cp1254
 
